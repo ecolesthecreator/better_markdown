@@ -32,7 +32,9 @@ struct BlockQuoteView: View {
                 }
             }
             .padding(style.blockQuotePadding)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .fixedSize(horizontal: false, vertical: true)
         .background(style.blockQuoteBackgroundColor)
         .cornerRadius(4)
         .padding(.bottom, style.paragraphSpacing)

@@ -42,6 +42,7 @@ public struct MarkdownView: View {
                 )
             }
         }
+        .fixedSize(horizontal: false, vertical: true)
         .background(style.backgroundColor)
     }
 }

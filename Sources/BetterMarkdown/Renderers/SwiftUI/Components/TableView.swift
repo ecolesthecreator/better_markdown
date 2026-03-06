@@ -23,6 +23,7 @@ struct TableView: View {
                     }
                 }
             }
+            .fixedSize(horizontal: false, vertical: true)
 
             Divider()
 
@@ -43,6 +44,7 @@ struct TableView: View {
                         }
                     }
                 }
+                .fixedSize(horizontal: false, vertical: true)
                 .background(rowIndex % 2 == 0 ? style.tableRowBackgroundColor : style.tableAlternateRowBackgroundColor)
 
                 if rowIndex < table.rows.count - 1 {

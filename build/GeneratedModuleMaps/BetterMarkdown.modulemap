@@ -1,0 +1,4 @@
+module BetterMarkdown {
+header "BetterMarkdown-Swift.h"
+export *
+}

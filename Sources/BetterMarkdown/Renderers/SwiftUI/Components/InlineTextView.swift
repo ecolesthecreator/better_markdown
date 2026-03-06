@@ -47,7 +47,7 @@ struct InlineTextView: View {
             }
 
         case .softBreak:
-            return Text(" ")
+            return Text("\n")
 
         case .lineBreak:
             return Text("\n")

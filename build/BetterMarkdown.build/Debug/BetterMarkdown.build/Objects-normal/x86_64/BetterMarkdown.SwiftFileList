@@ -1,0 +1,16 @@
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/BetterMarkdown.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Highlighting/HighlightrAdapter.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Highlighting/SyntaxHighlighter.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Parser/MarkdownParser.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Parser/ParsedMarkdown.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/AttributedString/AttributedStringRenderer.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/AttributedString/AttributedStringStyle.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/BlockQuoteView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/CodeBlockView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/HeadingView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/InlineTextView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/ListItemView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/MarkdownElementView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/TableView.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/MarkdownStyle.swift
+/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/MarkdownView.swift

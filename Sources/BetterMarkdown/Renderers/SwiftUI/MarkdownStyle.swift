@@ -2,14 +2,6 @@ import SwiftUI
 
 /// Style configuration for SwiftUI markdown rendering
 public struct MarkdownStyle {
-    // MARK: - Font Sizing
-
-    /// Base font size - all other sizes are relative to this
-    public var baseFontSize: CGFloat
-
-    /// Scale factor applied to all fonts (useful for accessibility or user preferences)
-    public var fontScale: CGFloat
-
     // MARK: - Typography
 
     public var h1Font: Font
@@ -51,19 +43,15 @@ public struct MarkdownStyle {
 
     // MARK: - Initialization
 
-    /// Create a MarkdownStyle with scalable fonts
+    /// Create a MarkdownStyle with Apple's standard text styles
     /// - Parameters:
-    ///   - baseFontSize: Base font size (default is platform-specific)
-    ///   - fontScale: Scale factor for all fonts (default 1.0)
-    ///   - h1Font: Override H1 font (if nil, uses scaled default)
-    ///   - h2Font: Override H2 font (if nil, uses scaled default)
-    ///   - h3Font: Override H3 font (if nil, uses scaled default)
-    ///   - h4Font: Override H4 font (if nil, uses scaled default)
-    ///   - bodyFont: Override body font (if nil, uses scaled default)
-    ///   - codeFont: Override code font (if nil, uses scaled default)
+    ///   - h1Font: Override H1 font (if nil, uses .title)
+    ///   - h2Font: Override H2 font (if nil, uses .title2)
+    ///   - h3Font: Override H3 font (if nil, uses .title3)
+    ///   - h4Font: Override H4 font (if nil, uses .headline)
+    ///   - bodyFont: Override body font (if nil, uses .body)
+    ///   - codeFont: Override code font (if nil, uses .body.monospaced())
     public init(
-        baseFontSize: CGFloat? = nil,
-        fontScale: CGFloat = 1.0,
         h1Font: Font? = nil,
         h2Font: Font? = nil,
         h3Font: Font? = nil,
@@ -91,24 +79,14 @@ public struct MarkdownStyle {
         tableCellPadding: EdgeInsets = EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12),
         syntaxHighlighter: SyntaxHighlighter? = nil
     ) {
-        // Set base size and scale
-        self.baseFontSize = baseFontSize ?? Self.defaultBaseFontSize
-        self.fontScale = fontScale
-
-        // Calculate scaled sizes
-        let scaledBase = self.baseFontSize * fontScale
-        let h1Size = scaledBase * 2.0   // 26pt at 13pt base (macOS), 34pt at 17pt base (iOS)
-        let h2Size = scaledBase * 1.69  // 22pt at 13pt base (macOS), 29pt at 17pt base (iOS)
-        let h3Size = scaledBase * 1.54  // 20pt at 13pt base (macOS), 26pt at 17pt base (iOS)
-        let h4Size = scaledBase * 1.38  // 18pt at 13pt base (macOS), 23pt at 17pt base (iOS)
-
-        // Use custom fonts or create scaled defaults
-        self.h1Font = h1Font ?? .system(size: h1Size, weight: .bold)
-        self.h2Font = h2Font ?? .system(size: h2Size, weight: .bold)
-        self.h3Font = h3Font ?? .system(size: h3Size, weight: .semibold)
-        self.h4Font = h4Font ?? .system(size: h4Size, weight: .semibold)
-        self.bodyFont = bodyFont ?? .system(size: scaledBase)
-        self.codeFont = codeFont ?? .system(size: scaledBase, design: .monospaced)
+        // Use Apple's standard text styles for headings (familiar to users)
+        // H1 -> .title (bold), H2 -> .title2 (bold), H3 -> .title3 (bold), H4 -> .headline
+        self.h1Font = h1Font ?? .title.weight(.bold)
+        self.h2Font = h2Font ?? .title2.weight(.bold)
+        self.h3Font = h3Font ?? .title3.weight(.bold)
+        self.h4Font = h4Font ?? .headline
+        self.bodyFont = bodyFont ?? .body
+        self.codeFont = codeFont ?? .body.monospaced()
 
         self.textColor = textColor
         self.backgroundColor = backgroundColor
@@ -132,26 +110,9 @@ public struct MarkdownStyle {
         self.syntaxHighlighter = syntaxHighlighter
     }
 
-    /// Default style configuration
+    /// Default style configuration using Apple's text styles
     public static var `default`: MarkdownStyle {
         MarkdownStyle()
-    }
-
-    // MARK: - Platform Defaults
-
-    /// Platform-dependent default base font size
-    public static var defaultBaseFontSize: CGFloat {
-        #if os(macOS)
-        return 13
-        #elseif os(iOS)
-        return 17
-        #elseif os(tvOS)
-        return 29
-        #elseif os(watchOS)
-        return 16
-        #else
-        return 16
-        #endif
     }
 
     // MARK: - Font Helpers
@@ -167,33 +128,4 @@ public struct MarkdownStyle {
         }
     }
 
-    /// Create a scaled version of this style
-    /// - Parameter scale: The scale factor to apply
-    /// - Returns: A new MarkdownStyle with scaled fonts
-    public func scaled(by scale: CGFloat) -> MarkdownStyle {
-        MarkdownStyle(
-            baseFontSize: baseFontSize,
-            fontScale: fontScale * scale,
-            textColor: textColor,
-            backgroundColor: backgroundColor,
-            codeBlockBackgroundColor: codeBlockBackgroundColor,
-            codeBlockTextColor: codeBlockTextColor,
-            inlineCodeBackgroundColor: inlineCodeBackgroundColor,
-            inlineCodeTextColor: inlineCodeTextColor,
-            blockQuoteBackgroundColor: blockQuoteBackgroundColor,
-            blockQuoteBorderColor: blockQuoteBorderColor,
-            tableHeaderBackgroundColor: tableHeaderBackgroundColor,
-            tableRowBackgroundColor: tableRowBackgroundColor,
-            tableAlternateRowBackgroundColor: tableAlternateRowBackgroundColor,
-            tableBorderColor: tableBorderColor,
-            headingSpacing: headingSpacing,
-            paragraphSpacing: paragraphSpacing,
-            listItemSpacing: listItemSpacing,
-            codeBlockPadding: codeBlockPadding,
-            inlineCodePadding: inlineCodePadding,
-            blockQuotePadding: blockQuotePadding,
-            tableCellPadding: tableCellPadding,
-            syntaxHighlighter: syntaxHighlighter
-        )
-    }
 }

@@ -1,0 +1,169 @@
+{
+  "" : {
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown-primary.dia",
+    "emit-module-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown-primary-emit-module.dia",
+    "pch" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown-primary.swiftdeps"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/BetterMarkdown.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BetterMarkdown~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Highlighting/HighlightrAdapter.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HighlightrAdapter~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Highlighting/SyntaxHighlighter.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/SyntaxHighlighter~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Parser/MarkdownParser.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownParser~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Parser/ParsedMarkdown.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ParsedMarkdown~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/AttributedString/AttributedStringRenderer.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringRenderer~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/AttributedString/AttributedStringStyle.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/AttributedStringStyle~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/BlockQuoteView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/BlockQuoteView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/CodeBlockView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/CodeBlockView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/HeadingView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/HeadingView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/InlineTextView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/InlineTextView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/ListItemView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/ListItemView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/MarkdownElementView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownElementView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/Components/TableView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/TableView~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/MarkdownStyle.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownStyle~partial.swiftmodule"
+  },
+  "/Users/eric/Developer/better_markdown/Sources/BetterMarkdown/Renderers/SwiftUI/MarkdownView.swift" : {
+    "const-values" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.swiftconstvalues",
+    "dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.d",
+    "diagnostics" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.dia",
+    "index-unit-output-path" : "/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.o",
+    "llvm-bc" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.bc",
+    "object" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.o",
+    "swift-dependencies" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView.swiftdeps",
+    "swiftmodule" : "/Users/eric/Developer/better_markdown/build/BetterMarkdown.build/Debug/BetterMarkdown.build/Objects-normal/arm64/MarkdownView~partial.swiftmodule"
+  }
+}
