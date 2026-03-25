@@ -320,6 +320,20 @@ public class AttributedStringRenderer {
             ]
             return NSAttributedString(string: code, attributes: attributes)
 
+        case .link(let destination, let children):
+            let result = NSMutableAttributedString()
+            for child in children {
+                result.append(renderInlineElement(child, baseFont: baseFont))
+            }
+            if let url = URL(string: destination) {
+                result.addAttributes([
+                    .link: url,
+                    .foregroundColor: style.linkColor,
+                    .underlineStyle: NSUnderlineStyle.single.rawValue
+                ], range: NSRange(location: 0, length: result.length))
+            }
+            return result
+
         case .softBreak:
             return NSAttributedString(string: " ")
 

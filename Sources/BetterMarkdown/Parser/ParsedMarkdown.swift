@@ -68,6 +68,7 @@ public indirect enum InlineElement: Codable, Equatable, Sendable, Hashable {
     case emphasis([InlineElement]) // Italic
     case strikethrough([InlineElement])
     case inlineCode(String)
+    case link(destination: String, children: [InlineElement])
     case softBreak
     case lineBreak
 }
@@ -117,6 +118,8 @@ extension InlineElement {
             return elements.map { $0.plainText }.joined()
         case .inlineCode(let code):
             return code
+        case .link(_, let children):
+            return children.map { $0.plainText }.joined()
         case .softBreak, .lineBreak:
             return " "
         }

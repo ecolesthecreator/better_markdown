@@ -21,6 +21,7 @@ public struct MarkdownStyle {
     public var inlineCodeTextColor: Color
     public var blockQuoteBackgroundColor: Color
     public var blockQuoteBorderColor: Color
+    public var linkColor: Color
     public var tableHeaderBackgroundColor: Color
     public var tableRowBackgroundColor: Color
     public var tableAlternateRowBackgroundColor: Color
@@ -66,6 +67,7 @@ public struct MarkdownStyle {
         inlineCodeTextColor: Color? = nil,
         blockQuoteBackgroundColor: Color? = nil,
         blockQuoteBorderColor: Color? = nil,
+        linkColor: Color? = nil,
         tableHeaderBackgroundColor: Color? = nil,
         tableRowBackgroundColor: Color? = nil,
         tableAlternateRowBackgroundColor: Color? = nil,
@@ -96,6 +98,7 @@ public struct MarkdownStyle {
         self.inlineCodeTextColor = inlineCodeTextColor ?? .pink
         self.blockQuoteBackgroundColor = blockQuoteBackgroundColor ?? Color.gray.opacity(0.1)
         self.blockQuoteBorderColor = blockQuoteBorderColor ?? Color.gray.opacity(0.6)
+        self.linkColor = linkColor ?? .blue
         self.tableHeaderBackgroundColor = tableHeaderBackgroundColor ?? Color.gray.opacity(0.15)
         self.tableRowBackgroundColor = tableRowBackgroundColor ?? Color.clear
         self.tableAlternateRowBackgroundColor = tableAlternateRowBackgroundColor ?? Color.gray.opacity(0.05)

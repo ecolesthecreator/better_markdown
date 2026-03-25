@@ -46,6 +46,19 @@ struct InlineTextView: View {
                     .foregroundColor(style.inlineCodeTextColor)
             }
 
+        case .link(let destination, let children):
+            let plainText = children.map { $0.plainText }.joined()
+            if let url = URL(string: destination) {
+                var attributedString = AttributedString(plainText)
+                attributedString.link = url
+                attributedString.foregroundColor = style.linkColor
+                return Text(attributedString)
+            } else {
+                return Text(plainText)
+                    .foregroundColor(style.linkColor)
+                    .underline(color: style.linkColor)
+            }
+
         case .softBreak:
             return Text("\n")
 

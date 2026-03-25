@@ -133,6 +133,8 @@ public struct MarkdownParser {
             return .strikethrough(parseInlineElements(strikethrough.children))
         case let inlineCode as InlineCode:
             return .inlineCode(inlineCode.code)
+        case let link as Link:
+            return .link(destination: link.destination ?? "", children: parseInlineElements(link.children))
         case is SoftBreak:
             return .softBreak
         case is LineBreak:

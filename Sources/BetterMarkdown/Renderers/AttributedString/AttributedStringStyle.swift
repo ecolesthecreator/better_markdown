@@ -35,6 +35,7 @@ public struct AttributedStringStyle {
     public var inlineCodeTextColor: PlatformColor
     public var blockQuoteBackgroundColor: PlatformColor
     public var blockQuoteBorderColor: PlatformColor
+    public var linkColor: PlatformColor
 
     // MARK: - Spacing
 
@@ -76,6 +77,7 @@ public struct AttributedStringStyle {
         inlineCodeTextColor: PlatformColor? = nil,
         blockQuoteBackgroundColor: PlatformColor? = nil,
         blockQuoteBorderColor: PlatformColor? = nil,
+        linkColor: PlatformColor? = nil,
         headingSpacing: CGFloat = 8,
         paragraphSpacing: CGFloat = 12,
         listItemSpacing: CGFloat = 4,
@@ -109,6 +111,7 @@ public struct AttributedStringStyle {
         self.inlineCodeTextColor = inlineCodeTextColor ?? .compatSystemPink
         self.blockQuoteBackgroundColor = blockQuoteBackgroundColor ?? .compatSystemGray6.withAlphaComponent(0.5)
         self.blockQuoteBorderColor = blockQuoteBorderColor ?? .compatSystemGray3
+        self.linkColor = linkColor ?? .systemBlue
         #elseif canImport(AppKit)
         self.h1Font = h1Font ?? .systemFont(ofSize: h1Size, weight: .bold)
         self.h2Font = h2Font ?? .systemFont(ofSize: h2Size, weight: .bold)
@@ -124,6 +127,7 @@ public struct AttributedStringStyle {
         self.inlineCodeTextColor = inlineCodeTextColor ?? .compatSystemPink
         self.blockQuoteBackgroundColor = blockQuoteBackgroundColor ?? .compatSystemGray6.withAlphaComponent(0.5)
         self.blockQuoteBorderColor = blockQuoteBorderColor ?? .compatSystemGray3
+        self.linkColor = linkColor ?? .systemBlue
         #endif
 
         self.backgroundColor = backgroundColor
@@ -184,6 +188,7 @@ public struct AttributedStringStyle {
             inlineCodeTextColor: inlineCodeTextColor,
             blockQuoteBackgroundColor: blockQuoteBackgroundColor,
             blockQuoteBorderColor: blockQuoteBorderColor,
+            linkColor: linkColor,
             headingSpacing: headingSpacing,
             paragraphSpacing: paragraphSpacing,
             listItemSpacing: listItemSpacing,
