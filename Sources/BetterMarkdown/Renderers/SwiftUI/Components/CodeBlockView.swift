@@ -1,5 +1,71 @@
 import SwiftUI
 
+#if os(macOS)
+import AppKit
+#endif
+
+// MARK: - macOS Horizontal Scroll View
+
+#if os(macOS)
+/// A horizontal-only scroll view that passes vertical scroll events to the parent scroll view
+/// This fixes the issue where hovering over a code block prevents scrolling the chat
+struct HorizontalScrollView<Content: View>: NSViewRepresentable {
+    let content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    func makeNSView(context: Context) -> NSScrollView {
+        let scrollView = VerticalPassthroughScrollView()
+        scrollView.hasHorizontalScroller = true
+        scrollView.hasVerticalScroller = false
+        scrollView.autohidesScrollers = true
+        scrollView.borderType = .noBorder
+        scrollView.drawsBackground = false
+
+        // Create the hosting view for SwiftUI content
+        let hostingView = NSHostingView(rootView: content)
+        hostingView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Use a flipped clip view for proper coordinate system
+        let clipView = NSClipView()
+        clipView.drawsBackground = false
+        clipView.documentView = hostingView
+
+        scrollView.contentView = clipView
+
+        // Set up constraints so content determines height
+        NSLayoutConstraint.activate([
+            hostingView.topAnchor.constraint(equalTo: clipView.topAnchor),
+            hostingView.leadingAnchor.constraint(equalTo: clipView.leadingAnchor),
+            hostingView.bottomAnchor.constraint(equalTo: clipView.bottomAnchor)
+        ])
+
+        return scrollView
+    }
+
+    func updateNSView(_ scrollView: NSScrollView, context: Context) {
+        if let hostingView = scrollView.documentView as? NSHostingView<Content> {
+            hostingView.rootView = content
+        }
+    }
+}
+
+/// Custom NSScrollView that passes vertical scroll events to its parent
+private class VerticalPassthroughScrollView: NSScrollView {
+    override func scrollWheel(with event: NSEvent) {
+        // If scrolling is primarily vertical, pass to next responder (parent scroll view)
+        if abs(event.scrollingDeltaY) > abs(event.scrollingDeltaX) {
+            nextResponder?.scrollWheel(with: event)
+        } else {
+            // Horizontal scroll - handle normally
+            super.scrollWheel(with: event)
+        }
+    }
+}
+#endif
+
 /// Renders a code block with optional syntax highlighting
 struct CodeBlockView: View {
     let language: String?
@@ -37,12 +103,22 @@ struct CodeBlockView: View {
                 .padding(.bottom, 4)
             }
 
+            #if os(macOS)
+            // Use a horizontal-only scroll view that passes vertical scroll events to parent
+            HorizontalScrollView {
+                codeContent
+                    .padding(style.codeBlockPadding)
+            }
+            .frame(maxHeight: .infinity)
+            .fixedSize(horizontal: false, vertical: true)
+            #else
             ScrollView(.horizontal, showsIndicators: true) {
                 codeContent
                     .padding(style.codeBlockPadding)
             }
             .frame(maxHeight: .infinity)
             .fixedSize(horizontal: false, vertical: true)
+            #endif
         }
         .background(style.codeBlockBackgroundColor)
         .cornerRadius(8)
