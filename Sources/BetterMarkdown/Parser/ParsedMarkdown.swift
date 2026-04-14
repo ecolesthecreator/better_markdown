@@ -120,8 +120,10 @@ extension InlineElement {
             return code
         case .link(_, let children):
             return children.map { $0.plainText }.joined()
-        case .softBreak, .lineBreak:
+        case .softBreak:
             return " "
+        case .lineBreak:
+            return "\n"
         }
     }
 }

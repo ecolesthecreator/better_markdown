@@ -42,6 +42,16 @@ public struct MarkdownStyle {
     /// Optional syntax highlighter for code blocks (used by NSAttributedString renderer)
     public var syntaxHighlighter: SyntaxHighlighter?
 
+    /// Optional custom code block renderer (e.g., for mermaid diagrams)
+    /// Return a view for languages you want to custom-render, or nil to use default code block rendering
+    /// Parameters: (language: String?, code: String) -> AnyView?
+    public var customCodeBlockRenderer: ((String?, String) -> AnyView?)?
+
+    /// Optional custom blockquote renderer (e.g., for adding copy functionality)
+    /// Return a view for custom blockquote rendering, or nil to use default rendering
+    /// Parameters: (elements: [MarkdownElement], style: MarkdownStyle, plainText: String) -> AnyView?
+    public var customBlockquoteRenderer: (([MarkdownElement], MarkdownStyle, String) -> AnyView?)?
+
     // MARK: - Initialization
 
     /// Create a MarkdownStyle with Apple's standard text styles
@@ -79,7 +89,9 @@ public struct MarkdownStyle {
         inlineCodePadding: EdgeInsets = EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4),
         blockQuotePadding: EdgeInsets = EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12),
         tableCellPadding: EdgeInsets = EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12),
-        syntaxHighlighter: SyntaxHighlighter? = nil
+        syntaxHighlighter: SyntaxHighlighter? = nil,
+        customCodeBlockRenderer: ((String?, String) -> AnyView?)? = nil,
+        customBlockquoteRenderer: (([MarkdownElement], MarkdownStyle, String) -> AnyView?)? = nil
     ) {
         // Use Apple's standard text styles for headings (familiar to users)
         // H1 -> .title (bold), H2 -> .title2 (bold), H3 -> .title3 (bold), H4 -> .headline
@@ -111,6 +123,8 @@ public struct MarkdownStyle {
         self.blockQuotePadding = blockQuotePadding
         self.tableCellPadding = tableCellPadding
         self.syntaxHighlighter = syntaxHighlighter
+        self.customCodeBlockRenderer = customCodeBlockRenderer
+        self.customBlockquoteRenderer = customBlockquoteRenderer
     }
 
     /// Default style configuration using Apple's text styles

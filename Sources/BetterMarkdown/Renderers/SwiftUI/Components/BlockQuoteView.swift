@@ -11,7 +11,46 @@ struct BlockQuoteView: View {
     let elements: [MarkdownElement]
     let style: MarkdownStyle
 
+    /// Extract plain text from all elements for copy functionality
+    private var plainText: String {
+        elements.map { extractPlainText(from: $0) }.joined(separator: "\n")
+    }
+
+    /// Recursively extract plain text from a MarkdownElement
+    private func extractPlainText(from element: MarkdownElement) -> String {
+        switch element {
+        case .heading(_, let content):
+            return content.plainText
+        case .paragraph(let content):
+            return content.plainText
+        case .codeBlock(_, let code):
+            return code
+        case .list(let items, _):
+            return items.map { $0.content.plainText }.joined(separator: "\n")
+        case .blockQuote(let nested):
+            return nested.map { extractPlainText(from: $0) }.joined(separator: "\n")
+        case .table(let table):
+            let headers = table.headers.map { $0.content.plainText }.joined(separator: "\t")
+            let rows = table.rows.map { row in
+                row.map { $0.content.plainText }.joined(separator: "\t")
+            }.joined(separator: "\n")
+            return [headers, rows].joined(separator: "\n")
+        case .thematicBreak:
+            return ""
+        }
+    }
+
     var body: some View {
+        // Check if there's a custom renderer
+        if let customView = style.customBlockquoteRenderer?(elements, style, plainText) {
+            customView
+        } else {
+            defaultBlockquoteView
+        }
+    }
+
+    @ViewBuilder
+    private var defaultBlockquoteView: some View {
         HStack(alignment: .top, spacing: 0) {
             // Left border
             Rectangle()

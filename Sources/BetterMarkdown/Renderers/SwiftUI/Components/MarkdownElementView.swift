@@ -1,12 +1,18 @@
 import SwiftUI
 
 /// Renders a single markdown block element
-struct MarkdownElementView: View {
-    let element: MarkdownElement
-    let style: MarkdownStyle
-    let isLastElement: Bool
+public struct MarkdownElementView: View {
+    public let element: MarkdownElement
+    public let style: MarkdownStyle
+    public let isLastElement: Bool
 
-    var body: some View {
+    public init(element: MarkdownElement, style: MarkdownStyle, isLastElement: Bool) {
+        self.element = element
+        self.style = style
+        self.isLastElement = isLastElement
+    }
+
+    public var body: some View {
         switch element {
         case .heading(let level, let content):
             HeadingView(level: level, content: content, style: style)
