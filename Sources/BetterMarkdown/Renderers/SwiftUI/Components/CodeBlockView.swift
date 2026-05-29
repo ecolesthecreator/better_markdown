@@ -181,7 +181,7 @@ struct CopyButton: View {
     var body: some View {
         Button(action: copyToClipboard) {
             HStack(spacing: 4) {
-                Image(systemName: showCopied ? "checkmark" : "doc.on.doc")
+                Image(systemName: showCopied ? "checkmark" : "square.on.square")
                     .font(.caption)
                 Text(showCopied ? "Copied" : "Copy")
                     .font(.caption)
