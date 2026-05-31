@@ -187,9 +187,11 @@ public struct MarkdownParser {
         return try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive])
     }()
 
-    /// Punctuation we'll peel off the tail of an autolinked URL. URLs almost never end
-    /// in these in prose, even though they're technically legal path/query characters.
-    private static let trailingPunctuation: Set<Character> = [".", ",", ";", ":", "!", "?"]
+    /// Hard cap on the length of a single text run we'll autolink. Pathological inputs
+    /// (e.g. a multi-KB base64 blob with no whitespace, or a tokenizer-mid-stream chunk)
+    /// can otherwise push `NSDataDetector` and our regex into expensive territory. URLs
+    /// users actually type are well under this bound; above it we fall back to plain text.
+    private static let autolinkMaxLength = 16_384
 
     /// Split a plain text run into a sequence of `.text` and `.link` inline elements,
     /// auto-detecting bare URLs (e.g. `http://localhost:3000`, `www.example.com`,
@@ -200,6 +202,10 @@ public struct MarkdownParser {
 
         let nsString = string as NSString
         let fullRange = NSRange(location: 0, length: nsString.length)
+
+        // Bail on huge runs — both detectors are linear-ish but on giant whitespace-free
+        // blobs (logs, base64, encoded tokens) they can stall the main thread.
+        guard nsString.length <= autolinkMaxLength else { return [.text(string)] }
 
         // Collect matches from both the network-URL detector and the custom-scheme regex.
         var rawMatches: [(range: NSRange, destination: String, matched: String)] = []
@@ -222,6 +228,9 @@ public struct MarkdownParser {
                 let (trimmed, trimCount) = trimURLTail(matched)
                 if trimCount > 0 {
                     matched = trimmed
+                    // trimURLTail removes only ASCII punctuation/brackets, so each removed
+                    // character is exactly one UTF-16 code unit — `trimCount` equals the
+                    // NSRange length delta directly.
                     r = NSRange(location: r.location, length: r.length - trimCount)
                     if r.length == 0 { continue }
                 }
@@ -263,32 +272,55 @@ public struct MarkdownParser {
 
     /// Trim trailing punctuation and unbalanced closing brackets from a raw URL match.
     /// Returns the trimmed string and the number of UTF-16 code units removed (so the
-    /// caller can fix up the `NSRange`).
+    /// caller can fix up the `NSRange`). Operates on UTF-8 bytes because every character
+    /// we look at (`. , ; : ! ? ( ) [ ] { }`) is single-byte ASCII; this keeps the routine
+    /// O(n) total instead of O(n²) (the previous version re-scanned the whole URL for
+    /// bracket balance on every pop, which became a pathological hotspot on long URLs).
     private static func trimURLTail(_ raw: String) -> (String, Int) {
-        var chars = Array(raw)
-        var removed = 0
+        var bytes = Array(raw.utf8)
 
-        while let last = chars.last {
-            if trailingPunctuation.contains(last) {
-                removed += last.utf16.count
-                chars.removeLast()
-                continue
+        // First, count opens/closes for each bracket flavor across the *full* string.
+        // Each peel decision only needs to know whether the remaining inner string is
+        // already balanced; we mutate these running counts as we trim.
+        var openParen = 0, closeParen = 0
+        var openBrack = 0, closeBrack = 0
+        var openBrace = 0, closeBrace = 0
+        for b in bytes {
+            switch b {
+            case 0x28: openParen += 1     // (
+            case 0x29: closeParen += 1    // )
+            case 0x5B: openBrack += 1     // [
+            case 0x5D: closeBrack += 1    // ]
+            case 0x7B: openBrace += 1     // {
+            case 0x7D: closeBrace += 1    // }
+            default: break
             }
-            // Unbalanced closing bracket — strip if there's no matching opener inside.
-            if last == ")" || last == "]" || last == "}" {
-                let opener: Character = last == ")" ? "(" : (last == "]" ? "[" : "{")
-                let opens = chars.dropLast().filter { $0 == opener }.count
-                let closes = chars.dropLast().filter { $0 == last }.count
-                if closes >= opens {
-                    removed += last.utf16.count
-                    chars.removeLast()
-                    continue
-                }
-            }
-            break
         }
 
-        return (String(chars), removed)
+        var removed = 0
+        loop: while let last = bytes.last {
+            switch last {
+            case 0x2E, 0x2C, 0x3B, 0x3A, 0x21, 0x3F: // . , ; : ! ?
+                bytes.removeLast(); removed += 1
+            case 0x29: // )
+                // Strip only if the remaining inner text has at least as many ')' as '('.
+                guard closeParen > openParen else { break loop }
+                closeParen -= 1
+                bytes.removeLast(); removed += 1
+            case 0x5D: // ]
+                guard closeBrack > openBrack else { break loop }
+                closeBrack -= 1
+                bytes.removeLast(); removed += 1
+            case 0x7D: // }
+                guard closeBrace > openBrace else { break loop }
+                closeBrace -= 1
+                bytes.removeLast(); removed += 1
+            default:
+                break loop
+            }
+        }
+
+        return (String(decoding: bytes, as: UTF8.self), removed)
     }
 }
 
