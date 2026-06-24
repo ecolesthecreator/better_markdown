@@ -20,14 +20,49 @@ public enum MarkdownElement: Codable, Equatable, Sendable, Hashable {
     case thematicBreak
 }
 
-/// List item with potential nested content
+/// List item with potential nested content.
+///
+/// `content` holds the inline contents of the item's first paragraph (the typical
+/// "label" of the bullet). `blocks` holds any additional block-level children that
+/// appear inside the same list item — code blocks, block quotes, tables, secondary
+/// paragraphs, etc. `nestedItems` is the list of sub-bullets when the child is
+/// itself a list.
 public struct ListItem: Codable, Equatable, Sendable, Hashable {
     public let content: [InlineElement]
     public let nestedItems: [ListItem]
+    public let blocks: [MarkdownElement]
 
-    public init(content: [InlineElement], nestedItems: [ListItem] = []) {
+    public init(
+        content: [InlineElement],
+        nestedItems: [ListItem] = [],
+        blocks: [MarkdownElement] = []
+    ) {
         self.content = content
         self.nestedItems = nestedItems
+        self.blocks = blocks
+    }
+
+    // Custom Codable so older cached `ParsedMarkdown` payloads (which were encoded
+    // before the `blocks` field existed) still decode cleanly — missing key just
+    // becomes an empty array.
+    private enum CodingKeys: String, CodingKey {
+        case content
+        case nestedItems
+        case blocks
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.content = try container.decode([InlineElement].self, forKey: .content)
+        self.nestedItems = try container.decodeIfPresent([ListItem].self, forKey: .nestedItems) ?? []
+        self.blocks = try container.decodeIfPresent([MarkdownElement].self, forKey: .blocks) ?? []
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(content, forKey: .content)
+        try container.encode(nestedItems, forKey: .nestedItems)
+        try container.encode(blocks, forKey: .blocks)
     }
 }
 

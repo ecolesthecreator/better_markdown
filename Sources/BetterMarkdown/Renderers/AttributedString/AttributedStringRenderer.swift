@@ -150,6 +150,14 @@ public class AttributedStringRenderer {
             result.append(renderInlineElements(item.content))
             result.append(NSAttributedString(string: "\n"))
 
+            // Render any additional block-level children (code blocks, secondary
+            // paragraphs, block quotes, tables, etc.) that appeared inside this
+            // list item. They render with full block formatting; the bullet column
+            // just stays empty for these continuation blocks.
+            for block in item.blocks {
+                result.append(renderElement(block))
+            }
+
             // Render nested items
             if !item.nestedItems.isEmpty {
                 let nestedList = renderList(items: item.nestedItems, ordered: ordered, indentLevel: indentLevel + 1)

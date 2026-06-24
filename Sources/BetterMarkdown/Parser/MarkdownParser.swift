@@ -70,18 +70,32 @@ public struct MarkdownParser {
     private func parseListItem(_ item: Markdown.ListItem) -> ListItem {
         var content: [InlineElement] = []
         var nestedItems: [ListItem] = []
+        var blocks: [MarkdownElement] = []
+        var sawFirstParagraph = false
 
         for child in item.children {
             if let paragraph = child as? Paragraph {
-                content.append(contentsOf: parseInlineElements(paragraph.children))
+                // The first paragraph becomes the inline "label" of the bullet (kept
+                // as `content` for back-compat with renderers and existing callers).
+                // Any subsequent paragraphs are full block-level children.
+                if !sawFirstParagraph {
+                    content.append(contentsOf: parseInlineElements(paragraph.children))
+                    sawFirstParagraph = true
+                } else {
+                    blocks.append(.paragraph(parseInlineElements(paragraph.children)))
+                }
             } else if let nestedList = child as? UnorderedList {
-                nestedItems = nestedList.listItems.map { parseListItem($0) }
+                nestedItems.append(contentsOf: nestedList.listItems.map { parseListItem($0) })
             } else if let nestedList = child as? OrderedList {
-                nestedItems = nestedList.listItems.map { parseListItem($0) }
+                nestedItems.append(contentsOf: nestedList.listItems.map { parseListItem($0) })
+            } else if let block = parseBlockElement(child) {
+                // Code blocks, block quotes, tables, thematic breaks, headings, etc.
+                // that appear as children of the list item.
+                blocks.append(block)
             }
         }
 
-        return ListItem(content: content, nestedItems: nestedItems)
+        return ListItem(content: content, nestedItems: nestedItems, blocks: blocks)
     }
 
     private func parseBlockQuote(_ blockQuote: BlockQuote) -> MarkdownElement {

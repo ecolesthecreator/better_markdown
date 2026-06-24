@@ -25,8 +25,23 @@ struct ListItemView: View {
                         .frame(width: 20, alignment: .trailing)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        // Item content
-                        InlineTextView(elements: item.content, style: style)
+                        // Item content (the first paragraph's inline text)
+                        if !item.content.isEmpty {
+                            InlineTextView(elements: item.content, style: style)
+                        }
+
+                        // Additional block-level children (code blocks, secondary
+                        // paragraphs, block quotes, tables, etc.) that appeared
+                        // inside the same list item.
+                        if !item.blocks.isEmpty {
+                            ForEach(Array(item.blocks.enumerated()), id: \.offset) { blockIndex, block in
+                                MarkdownElementView(
+                                    element: block,
+                                    style: style,
+                                    isLastElement: blockIndex == item.blocks.count - 1 && item.nestedItems.isEmpty
+                                )
+                            }
+                        }
 
                         // Nested items
                         if !item.nestedItems.isEmpty {
