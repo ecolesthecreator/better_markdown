@@ -65,16 +65,17 @@ public class HighlightrAdapter: SyntaxHighlighter {
     }
 }
 
-#if canImport(UIKit)
+// iOS/tvOS: UIKit's own `UIColor.label` (iOS 13+, below this package's
+// iOS 15 floor) is used directly. A `static var label` shim used to live here
+// whose body `return .label` resolved to itself — infinite recursion and a
+// stack-overflow crash the first time an adapter was created without an
+// explicit fallbackColor on iOS.
+#if os(watchOS)
+// watchOS UIKit has no `label` color; white reads correctly on its dark UI.
 extension UIColor {
-    static var label: UIColor {
-        if #available(iOS 13.0, *) {
-            return .label
-        } else {
-            return .black
-        }
-    }
+    static var label: UIColor { .white }
 }
+#elseif canImport(UIKit)
 #elseif canImport(AppKit)
 extension NSColor {
     static var label: NSColor {
