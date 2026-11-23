@@ -1,0 +1,8 @@
+BetterMarkdown
+Copyright 2025-2026 SciCoTherapy Labs LLC
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It depends on, but does not include, swift-markdown (Apache-2.0, Apple Inc.
+and the Swift project authors) and Highlightr (MIT, Juan Pablo Illanes). Swift
+Package Manager fetches them under their own licenses.

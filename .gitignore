@@ -75,3 +75,6 @@ playground.xcworkspace
 
 # Networking
 .netrc
+
+# Build output
+build/
