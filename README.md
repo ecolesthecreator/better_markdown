@@ -39,7 +39,7 @@ Add BetterMarkdown to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/YOUR_USERNAME/BetterMarkdown.git", from: "1.0.0")
+    .package(url: "https://github.com/ecolesthecreator/better_markdown.git", branch: "main")
 ]
 ```
 
@@ -379,7 +379,7 @@ struct MarkdownDemoView: View {
 
 ## License
 
-MIT License - feel free to use in your projects!
+Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
 ## Contributing
 
