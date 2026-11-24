@@ -18,7 +18,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swiftlang/swift-markdown.git", branch: "main"),
+        .package(url: "https://github.com/swiftlang/swift-markdown.git", from: "0.9.0"),
         .package(url: "https://github.com/raspu/Highlightr.git", from: "2.1.0")
     ],
     targets: [
